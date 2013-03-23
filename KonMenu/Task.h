@@ -8,6 +8,9 @@
 #ifndef TASK_H_
 #define TASK_H_
 
+#include <stdio.h>
+#include <iostream>
+
 #include <string>
 using namespace std;
 

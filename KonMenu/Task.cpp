@@ -29,12 +29,11 @@ namespace Task
 
 	void Task::Run()
 	{
-
+		DoWork();
 	}
 
 	void Task::DoWork()
 	{
-
 	}
 
 } /* namespace Task */

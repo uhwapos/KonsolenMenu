@@ -5,8 +5,12 @@
 #include "smdANSI.h"
 #include "Tools.h"
 #include "Task.h"
+#include "CounterTask.h"
 
 using namespace std;
+using namespace Task;
+
+CounterTask *p_CT;
 
 void eins()
 {
@@ -27,6 +31,8 @@ void Count()
 	BRIGHT GREEN
 	cout << "Start Counter Thread" << endl;
 	NORMAL WHITE
+	p_CT = new CounterTask();
+	p_CT->Run();
 }
 
 void Error()
@@ -44,6 +50,7 @@ void Exit()
 	CYAN
 	cout << "Ende.\n"<< endl;
 	NORMAL WHITE
+	if(p_CT != NULL) delete p_CT;
 	exit(0);
 }
 

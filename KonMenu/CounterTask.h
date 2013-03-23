@@ -12,12 +12,12 @@
 
 namespace Task
 {
-
-	class CounterTask: public Task::Task
+	class CounterTask : public Task
 	{
 		public:
 		CounterTask();
 		virtual ~CounterTask();
+		void DoWork();
 	};
 
 } /* namespace Task */
