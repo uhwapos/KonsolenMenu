@@ -4,16 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../CounterTask.cpp \
 ../KonMenu.cpp \
 ../Task.cpp \
 ../Tools.cpp 
 
 OBJS += \
+./CounterTask.o \
 ./KonMenu.o \
 ./Task.o \
 ./Tools.o 
 
 CPP_DEPS += \
+./CounterTask.d \
 ./KonMenu.d \
 ./Task.d \
 ./Tools.d 

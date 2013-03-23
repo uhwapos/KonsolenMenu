@@ -21,7 +21,7 @@ local.properties
 
 # CDT-specific
 .cproject
-*.o
+KonMenu/Debug/*
 
 # PDT-specific
 .buildpath
