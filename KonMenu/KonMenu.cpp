@@ -4,6 +4,7 @@
 
 #include "smdANSI.h"
 #include "Tools.h"
+#include ".h"
 
 using namespace std;
 
@@ -24,23 +25,18 @@ void zwei()
 void Count()
 {
 	BRIGHT GREEN
-	for(int i=1;i<=10;i++)
-	{
-		GOTO(1,1)
-		BEEP
-		cout << i;
-		Tools::msleep(200);
-	}
+	cout << "Start Counter Thread" << endl;
 	NORMAL WHITE
-	cout << endl << endl;
 }
 
 void Error()
 {
 	BRIGHT RED
-	cout << "Error\n" << endl;
+	cout << "Error" << endl;
+	double d = 0;
+	double e = 10 / d;
+	cout << e << endl;
 	NORMAL WHITE
-	double d = 10 / 0;
 }
 
 void Exit()
@@ -86,6 +82,8 @@ int main()
 		   case 4: BRIGHT MAGENTA BEEP cout << "Beep\n" << endl; NORMAL WHITE
 		   	   break;
 		   case 5: Error();
+		   	   break;
+		   case 6:
 		   	   break;
 		   case 0: Exit();
 		   	   break;

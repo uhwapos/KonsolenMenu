@@ -5,14 +5,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../KonMenu.cpp \
+../Task.cpp \
 ../Tools.cpp 
 
 OBJS += \
 ./KonMenu.o \
+./Task.o \
 ./Tools.o 
 
 CPP_DEPS += \
 ./KonMenu.d \
+./Task.d \
 ./Tools.d 
 
 
