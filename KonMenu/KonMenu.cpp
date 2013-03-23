@@ -9,7 +9,7 @@ using namespace std;
 
 void eins()
 {
-	YELLOW
+	HWHITE YELLOW
 	cout << "1 wurde ausgewählt\n" << endl;
 	NORMAL WHITE
 }
@@ -35,6 +35,14 @@ void Count()
 	cout << endl << endl;
 }
 
+void Error()
+{
+	BRIGHT RED
+	cout << "Error\n" << endl;
+	NORMAL WHITE
+	double d = 10 / 0;
+}
+
 void Exit()
 {
 	CYAN
@@ -50,8 +58,9 @@ void PrintMenu()
 	GOTO(30,5) cout << "(2) Punkt zwei" << endl;
 	GOTO(30,6) cout << "(3) Count" << endl;
 	GOTO(30,7) cout << "(4) Beep" << endl;
-	GOTO(30,8) cout << "(0) Exit" << endl;
-	GOTO(30,9) cout << "Eingabe: ";
+	GOTO(30,8) cout << "(5) Error" << endl;
+	GOTO(30,9) cout << "(0) Exit" << endl;
+	GOTO(30,10) cout << "Eingabe: ";
 }
 
 int main()
@@ -75,6 +84,8 @@ int main()
 		   case 3: Count();
 		   	   break;
 		   case 4: BRIGHT MAGENTA BEEP cout << "Beep\n" << endl; NORMAL WHITE
+		   	   break;
+		   case 5: Error();
 		   	   break;
 		   case 0: Exit();
 		   	   break;
