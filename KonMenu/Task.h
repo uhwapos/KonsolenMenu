@@ -14,7 +14,7 @@
 #include <string>
 using namespace std;
 
-namespace Task
+namespace Tasks
 {
 
 	class Task
@@ -24,9 +24,9 @@ namespace Task
 
 		protected:
 		string _name;
-		//Mutex _mutexKeepAlive = new Mutex();
-		//AutoResetEvent _autoEvent = new AutoResetEvent(false);
-		//Thread _curThread = null;
+		private:
+		static void* m_thread(void* This) { return ((Task*)This)->DoWork(This); }
+
 
 		public:
 		Task();
@@ -35,7 +35,7 @@ namespace Task
 
 		public:
 		void Run();
-		virtual void DoWork();
+		void *DoWork(void *arg);
 	};
 
 } /* namespace Task */

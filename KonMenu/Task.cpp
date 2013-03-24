@@ -5,9 +5,12 @@
  *      Author: uwalter
  */
 
+#include <pthread.h>
+#include <signal.h>
+
 #include "Task.h"
 
-namespace Task
+namespace Tasks
 {
 
 	Task::Task()
@@ -24,16 +27,19 @@ namespace Task
 
 	Task::~Task()
 	{
-		// TODO Auto-generated destructor stub
 	}
 
 	void Task::Run()
 	{
-		DoWork();
+		pthread_t ThId;
+		int i = 0;
+		//pthread_create(&ThId,NULL,m_thread,&i);
+		DoWork(NULL);
 	}
 
-	void Task::DoWork()
+	void *Task::DoWork(void *arg)
 	{
+		return 0;
 	}
 
 } /* namespace Task */

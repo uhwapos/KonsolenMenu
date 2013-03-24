@@ -8,9 +8,9 @@
 #include "CounterTask.h"
 
 using namespace std;
-using namespace Task;
+using namespace Tasks;
 
-CounterTask *p_CT;
+Task *p_CT;
 
 void eins()
 {
@@ -31,7 +31,7 @@ void Count()
 	BRIGHT GREEN
 	cout << "Start Counter Thread" << endl;
 	NORMAL WHITE
-	p_CT = new CounterTask();
+	p_CT = new Task();
 	p_CT->Run();
 }
 

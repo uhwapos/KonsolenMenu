@@ -10,14 +10,14 @@
 
 #include "Task.h"
 
-namespace Task
+namespace Tasks
 {
 	class CounterTask : public Task
 	{
 		public:
 		CounterTask();
 		virtual ~CounterTask();
-		void DoWork();
+		virtual void *DoWork(void*);
 	};
 
 } /* namespace Task */

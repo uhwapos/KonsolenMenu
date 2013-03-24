@@ -8,7 +8,7 @@
 #include "CounterTask.h"
 #include "smdANSI.h"
 
-namespace Task
+namespace Tasks
 {
 
 	CounterTask::CounterTask()
@@ -20,9 +20,11 @@ namespace Task
 		// TODO Auto-generated destructor stub
 	}
 
-	void CounterTask::DoWork()
+	void *CounterTask::DoWork(void *arg)
 	{
+		BLINK
 		GOTO(60,1)
-		cout << "DoWork";
+		cout << "DoWork !";
+		return 0;
 	}
 } /* namespace Task */
