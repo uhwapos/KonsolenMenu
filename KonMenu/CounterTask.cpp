@@ -7,24 +7,42 @@
 
 #include "CounterTask.h"
 #include "smdANSI.h"
+#include "Tools.h"
 
 namespace Tasks
 {
 
-	CounterTask::CounterTask()
+	CounterTask::CounterTask() : Task()
 	{
+		m_IsRunning = true;
+	}
+
+	CounterTask::CounterTask(string name) : Task(name)
+	{
+		m_IsRunning = true;
+	}
+
+	CounterTask::CounterTask(string name,void* arg) : Task(name,arg)
+	{
+		m_IsRunning = true;
 	}
 
 	CounterTask::~CounterTask()
 	{
-		// TODO Auto-generated destructor stub
+		m_IsRunning = true;
 	}
 
 	void *CounterTask::DoWork(void *arg)
 	{
-		BLINK
-		GOTO(60,1)
-		cout << "DoWork !";
+		while(m_IsRunning)
+		{
+			BLINK
+			GOTO(60,1)
+			cout << "DoWork !!";
+			BEEP
+			HOME
+			Tools::msleep(500);
+		}
 		return 0;
 	}
 } /* namespace Task */

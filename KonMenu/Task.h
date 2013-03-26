@@ -20,22 +20,24 @@ namespace Tasks
 	class Task
 	{
 		public:
-		int _counter;
+		int m_Counter;
+		pthread_t m_ThreadId;
+		void* m_Arg;
 
 		protected:
-		string _name;
+		string m_Name;
 		private:
-		static void* m_thread(void* This) { return ((Task*)This)->DoWork(This); }
-
+		static void* m_ThreadFunction(void* This) { return ((Task*)This)->DoWork(This); }
 
 		public:
 		Task();
-		Task(string name);
+		Task(string);
+		Task(string,void*);
 		virtual ~Task();
 
 		public:
 		void Run();
-		void *DoWork(void *arg);
+		virtual void *DoWork(void *arg);
 	};
 
 } /* namespace Task */

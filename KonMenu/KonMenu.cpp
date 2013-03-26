@@ -10,7 +10,7 @@
 using namespace std;
 using namespace Tasks;
 
-Task *p_CT;
+CounterTask *p_CT;
 
 void eins()
 {
@@ -26,13 +26,22 @@ void zwei()
 	NORMAL WHITE
 }
 
-void Count()
+void StartThread()
 {
 	BRIGHT GREEN
 	cout << "Start Counter Thread" << endl;
 	NORMAL WHITE
-	p_CT = new Task();
-	p_CT->Run();
+	if(p_CT == NULL)
+	{
+		p_CT = new CounterTask();
+		p_CT->Run();
+	}
+	else
+	{
+		BRIGHT GREEN
+		cout << "Thread is running" << endl;
+		NORMAL WHITE
+	}
 }
 
 void Error()
@@ -59,9 +68,10 @@ void PrintMenu()
 	GOTO(30,3) cout << "Menü:" << endl;
 	GOTO(30,4) cout << "(1) Punkt eins" << endl;
 	GOTO(30,5) cout << "(2) Punkt zwei" << endl;
-	GOTO(30,6) cout << "(3) Count" << endl;
+	GOTO(30,6) cout << "(3) Start Thread" << endl;
 	GOTO(30,7) cout << "(4) Beep" << endl;
 	GOTO(30,8) cout << "(5) Error" << endl;
+	GOTO(30,8) cout << "(6) Stop Thread" << endl;
 	GOTO(30,9) cout << "(0) Exit" << endl;
 	GOTO(30,10) cout << "Eingabe: ";
 }
@@ -84,13 +94,25 @@ int main()
 		   	   break;
 		   case 2: zwei();
 		   	   break;
-		   case 3: Count();
+		   case 3: StartThread();
 		   	   break;
 		   case 4: BRIGHT MAGENTA BEEP cout << "Beep\n" << endl; NORMAL WHITE
 		   	   break;
 		   case 5: Error();
 		   	   break;
 		   case 6:
+			   if(p_CT != NULL)
+			   {
+				   p_CT->m_IsRunning = false;
+				   p_CT = NULL;
+			   }
+			   else
+			   {
+				   BRIGHT GREEN
+				   cout << "Stop Counter Thread" << endl;
+				   NORMAL WHITE
+				   p_CT = NULL;
+			   }
 		   	   break;
 		   case 0: Exit();
 		   	   break;

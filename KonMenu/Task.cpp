@@ -15,14 +15,26 @@ namespace Tasks
 
 	Task::Task()
 	{
-		_counter = 0;
-		_name = "Thread";
+		m_Counter = 0;
+		m_ThreadId = 0;
+		m_Name = "Thread";
+		m_Arg = NULL;
 	}
 
 	Task::Task(string name)
 	{
-		_counter = 0;
-		_name = name;
+		m_Counter = 0;
+		m_ThreadId = 0;
+		m_Name = name;
+		m_Arg = NULL;
+	}
+
+	Task::Task(string name,void* arg)
+	{
+		m_Counter = 0;
+		m_ThreadId = 0;
+		m_Name = name;
+		m_Arg = arg;
 	}
 
 	Task::~Task()
@@ -31,10 +43,7 @@ namespace Tasks
 
 	void Task::Run()
 	{
-		pthread_t ThId;
-		int i = 0;
-		//pthread_create(&ThId,NULL,m_thread,&i);
-		DoWork(NULL);
+		pthread_create(&m_ThreadId,NULL,&m_ThreadFunction,this);
 	}
 
 	void *Task::DoWork(void *arg)

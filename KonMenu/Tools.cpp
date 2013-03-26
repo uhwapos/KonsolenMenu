@@ -12,12 +12,10 @@
 
 Tools::Tools()
 {
-	// TODO Auto-generated constructor stub
 }
 
 Tools::~Tools()
 {
-	// TODO Auto-generated destructor stub
 }
 
 int Tools::__nsleep(const struct timespec *req, struct timespec *rem)

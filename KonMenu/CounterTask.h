@@ -15,7 +15,12 @@ namespace Tasks
 	class CounterTask : public Task
 	{
 		public:
+		bool m_IsRunning;
+
+		public:
 		CounterTask();
+		CounterTask(string);
+		CounterTask(string,void*);
 		virtual ~CounterTask();
 		virtual void *DoWork(void*);
 	};
