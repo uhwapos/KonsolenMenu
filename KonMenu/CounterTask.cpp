@@ -38,10 +38,10 @@ namespace Tasks
 		{
 			BLINK
 			GOTO(60,1)
-			cout << "DoWork !!";
-			BEEP
+			cout << "DoWork !! " << m_Counter++;
+			//BEEP
 			HOME
-			Tools::msleep(500);
+			//Tools::msleep(5);
 		}
 		return 0;
 	}
